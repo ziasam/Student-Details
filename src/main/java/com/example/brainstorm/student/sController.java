@@ -24,4 +24,11 @@ public class sController {
     public void addNewStudent(@RequestBody Student student){
         sservice.addStudent(student);
     }
+
+    @DeleteMapping(path= "{studentId}")
+    public void deleteStudent(@PathVariable ("studentId") long studentId)
+    {
+        sservice.delStudent(studentId);
+    }
+
 }

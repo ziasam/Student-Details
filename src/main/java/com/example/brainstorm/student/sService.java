@@ -30,4 +30,16 @@ public class sService {
             throw new IllegalStateException("Email Taken");
         }
     }
+
+    public void delStudent(long studentId) {
+        boolean i = srepository.existsById(studentId);
+        if(i==true)
+        {
+            srepository.deleteById(studentId);
+        }
+        else
+        {
+            throw new IllegalStateException("No student by this id");
+        }
+    }
 }
