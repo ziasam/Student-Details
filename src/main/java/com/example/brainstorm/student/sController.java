@@ -3,6 +3,7 @@ package com.example.brainstorm.student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
@@ -31,4 +32,9 @@ public class sController {
         sservice.delStudent(studentId);
     }
 
+    @PutMapping(path = "{studentId}")
+    public void updateStudent(@PathVariable ("studentId") long studentId, @RequestParam(required = false) String name, @RequestParam(required = false) String email)
+    {
+        sservice.upStudent(studentId, name, email);
+    }
 }

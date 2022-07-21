@@ -3,6 +3,7 @@ package com.example.brainstorm.student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,6 +41,28 @@ public class sService {
         else
         {
             throw new IllegalStateException("No student by this id");
+        }
+    }
+
+    @Transactional
+    public void upStudent(long studentId, String name, String email) {
+        Student stud = srepository.findById(studentId).orElseThrow(() -> new IllegalStateException("No student By this id"));
+
+        if(name != null && name.length() > 0)
+        {
+            stud.setName(name);
+        }
+
+        if(email != null && email.length() > 0)
+        {
+            Optional<Student> student = srepository.findStudentByEmail(email);
+            if(student.isEmpty()) {
+                stud.setEmail(email);
+            }
+            else
+            {
+                throw new IllegalStateException("Email is taken");
+            }
         }
     }
 }
