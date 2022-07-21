@@ -1,6 +1,8 @@
 package com.example.brainstorm.student;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.Period;
 
 @Entity
 @Table
@@ -21,23 +23,25 @@ public class Student {
     private long id;
     private String name;
     private String email;
+    private LocalDate dateOfBirth;
+    @Transient
     private int age;
 
     public Student() {
 
     }
 
-    public Student(long id, String name, String email, int age){
+    public Student(long id, String name, String email, LocalDate dateOfBirth){
         this.id = id;
         this.name = name;
         this.email = email;
-        this.age = age;
+        this.dateOfBirth = dateOfBirth;
     }
 
-    public Student(String name, String email, int age){
+    public Student(String name, String email, LocalDate dateOfBirth){
         this.name = name;
         this.email = email;
-        this.age = age;
+        this.dateOfBirth = dateOfBirth;
     }
 
     public long getId() {
@@ -64,8 +68,17 @@ public class Student {
         this.email = email;
     }
 
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+
     public int getAge() {
-        return age;
+        return Period.between(dateOfBirth, LocalDate.now()).getYears();
     }
 
     public void setAge(int age) {

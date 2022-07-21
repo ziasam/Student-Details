@@ -4,6 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Configuration
@@ -16,12 +17,13 @@ public class sConfig {
             Student Sameer = new Student(
                     "Sameer",
                     "ziauddinsameer@gmail.com",
-                    25
+                    LocalDate.of(1997, 3, 19)
+
             );
             Student Sayeed = new Student(
                     "Sayeed",
                     "saydulkader@gmail.com",
-                    25
+                    LocalDate.of(1996, 8, 19)
             );
 
             repository.saveAll(List.of(Sameer, Sayeed));
