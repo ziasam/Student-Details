@@ -9,21 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @SpringBootApplication
-@RestController
 public class BrainstormApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BrainstormApplication.class, args);
 	}
-
-	@GetMapping
-	public List<Student> sBoot() {
-		return List.of(new Student(
-				1504082,
-				"Sameer",
-				"ziauddinsameer@gmail.com",
-				25
-		));
-	}
-
 }
