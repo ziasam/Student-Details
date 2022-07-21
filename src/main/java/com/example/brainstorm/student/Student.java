@@ -5,16 +5,17 @@ import javax.persistence.*;
 @Entity
 @Table
 public class Student {
+
     @Id
     @SequenceGenerator(
-            name = "student",
-            sequenceName = "student",
+            name = "student_sequence",
+            sequenceName = "student_sequence",
             allocationSize = 1
     )
 
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "student"
+            generator = "student_sequence"
     )
 
     private long id;
@@ -71,7 +72,7 @@ public class Student {
         this.age = age;
     }
 
-    /**@Override
+    /**=@Override
     public String toString() {
         return "Student{" +
                 "id=" + id +
