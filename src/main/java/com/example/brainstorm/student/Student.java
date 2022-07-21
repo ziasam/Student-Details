@@ -1,6 +1,22 @@
 package com.example.brainstorm.student;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class Student {
+    @Id
+    @SequenceGenerator(
+            name = "student",
+            sequenceName = "student",
+            allocationSize = 1
+    )
+
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "student"
+    )
+
     private long id;
     private String name;
     private String email;
