@@ -18,4 +18,8 @@ public class sService {
     public List<Student> getStudent() {
         return srepository.findAll();
     }
+
+    public void addStudent(Student student) {
+        System.out.println(student);
+    }
 }
