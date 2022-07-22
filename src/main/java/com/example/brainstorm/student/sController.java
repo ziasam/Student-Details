@@ -33,8 +33,8 @@ public class sController {
     }
 
     @PutMapping(path = "{studentId}")
-    public void updateStudent(@PathVariable ("studentId") long studentId, @RequestParam(required = false) String name, @RequestParam(required = false) String email)
+    public void updateStudent(@PathVariable ("studentId") long studentId, @RequestParam(required = false) String name, @RequestParam(required = false) String email, @RequestParam(required = false) String subject)
     {
-        sservice.upStudent(studentId, name, email);
+        sservice.upStudent(studentId, name, email, subject);
     }
 }

@@ -17,16 +17,24 @@ public class sConfig {
             Student Sameer = new Student(
                     "Sameer",
                     "ziauddinsameer@gmail.com",
+                    "Science",
                     LocalDate.of(1997, 3, 19)
 
             );
             Student Sayeed = new Student(
                     "Sayeed",
                     "saydulkader@gmail.com",
+                    "Science",
                     LocalDate.of(1996, 8, 19)
             );
+            Student Suzan = new Student(
+                    "Suzan",
+                    "suzan@gmail.com",
+                    "Science",
+                    LocalDate.of(1996, 5, 19)
+            );
 
-            repository.saveAll(List.of(Sameer, Sayeed));
+            repository.saveAll(List.of(Sameer, Sayeed, Suzan));
             //repository.deleteAll();
         };
     }

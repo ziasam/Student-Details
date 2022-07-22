@@ -34,7 +34,7 @@ public class sService {
 
     public void delStudent(long studentId) {
         boolean i = srepository.existsById(studentId);
-        if(i==true)
+        if(i)
         {
             srepository.deleteById(studentId);
         }
@@ -45,7 +45,7 @@ public class sService {
     }
 
     @Transactional
-    public void upStudent(long studentId, String name, String email) {
+    public void upStudent(long studentId, String name, String email, String subject) {
         Student stud = srepository.findById(studentId).orElseThrow(() -> new IllegalStateException("No student By this id"));
 
         if(name != null && name.length() > 0)
@@ -63,6 +63,11 @@ public class sService {
             {
                 throw new IllegalStateException("Email is taken");
             }
+        }
+
+        if(subject != null && subject.length() > 0)
+        {
+            stud.setSubject(subject);
         }
     }
 }
